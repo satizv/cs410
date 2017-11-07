@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-response = requests.get('http://www.the-numbers.com/weekly-box-office-chart')
+response = requests.get('http://www.the-numbers.com/weekend-box-office-chart')
 html =  response.text.encode('utf-8')
 soup = BeautifulSoup(html, 'html.parser')
 
@@ -23,11 +23,11 @@ for datapr in soup.find_all('td',class_="data"):
 #print moviedata[6]
 #print moviedata[7]
 
-fi = open("movie.txt","w")
+fi = open("movienumbers.txt","w")
 # Pipe Separated  file with 6 fields - Movie Name|Gross|Change pcnt|Total Gross|Week|link
 #0*8+2
 i=0
-while (i < 15):
+while (i < 5):
     filetext = moviename[i].encode('ascii', 'ignore') + "|" + moviedata[i*8+2].strip()+ "|" + moviedata[i*8+3].strip()+ "|" + moviedata[i*8+6].strip()+ "|" + moviedata[i*8+7].strip()+ "|" + movielink[i].strip()
     fi.write(filetext)
     fi.write('\n')

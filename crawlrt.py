@@ -20,15 +20,14 @@ import time
 
 # Input - Movie Name, Url, Reviewtype
 # Output - Create a text file with the review content
-def crawl_review(movie,newurl,reviewtype):
-    filename = movie + "_" + reviewtype + ".txt"
+def crawl_review(filename,newurl,reviewtype):
     fi = open(filename, "w")
     newurlresponse = requests.get(newurl)
     newurlhtml = newurlresponse.text.encode('utf-8')
     newurlsoup = BeautifulSoup(newurlhtml, 'html.parser')
     for newurldata in newurlsoup.find_all('div', class_=reviewtype):
         fi.write(newurldata.text.encode('ascii', 'ignore'))
-        fi.write('\n')
+        fi.write('|')
         print newurldata.text
     fi.close()
     time.sleep(2)
@@ -53,12 +52,20 @@ movielist =  dict1.get('itemListElement')
 # The loop structure executes 15 times to call the crawl_review fn to generate separate txt files for critic and user review for each movie
 # Critic review are present with "the_review" class and the user review are present in the user_review tag in the RT website
 
+filist = open("moviertlist.txt","w")
+
 i=0
-while (i<20):
+while (i<5):
     print movielist[i].get('url')[3:]
+    filetext = movielist[i].get('url')[3:]
+    print filetext
+    filist.write(filetext)
+    filist.write('\n')
     criticsurl = "https://www.rottentomatoes.com" + movielist[i].get('url') + "/reviews"
     userurl = criticsurl + "/?type=user"
-    crawl_review(movielist[i].get('url')[3:],criticsurl,"the_review")
-    crawl_review(movielist[i].get('url')[3:],userurl,"user_review")
+    crawl_review(filetext + "_critics.csv",criticsurl,"the_review")
+    crawl_review(filetext + "_user.csv",userurl,"user_review")
     i=i+1
     print(i)
+
+filist.close()
