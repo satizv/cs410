@@ -3,7 +3,7 @@ filenumb = open("movienumbers.txt", "r")
 filemovie = open("movieinput.txt", "w")
 
 i=0
-while (i < 5):
+while (i < 4):
     textrt = filert.readline().rstrip('\n')
     textnumb = filenumb.readline().rstrip('\n')
 #    print textrt
