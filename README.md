@@ -1,2 +1,6 @@
 # cs410
-Movie Review
+# CS410 Final Project - Movie Review Analysis
+###### Abdulkarim Atek
+###### Satish Venkiteswaran
+
+
