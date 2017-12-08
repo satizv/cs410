@@ -27,11 +27,11 @@ fi = open("movienumbers.txt","w")
 # Pipe Separated  file with 6 fields - Movie Name|Gross|Change pcnt|Total Gross|Week|link
 #0*8+2
 i=0
-while (i < 5):
+while (i < 15):
     filetext = moviename[i].encode('ascii', 'ignore') + "|" + moviedata[i*8+2].strip()+ "|" + moviedata[i*8+3].strip()+ "|" + moviedata[i*8+6].strip()+ "|" + moviedata[i*8+7].strip()+ "|" + movielink[i].strip()
     fi.write(filetext)
     fi.write('\n')
-    print filetext
+#    print filetext
     i=i+1
 
 fi.close()

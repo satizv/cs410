@@ -1,3 +1,5 @@
+# Input - File Name, Movie Name
+# Output - Create a html for each movie review
 def moviepage(filemoviename,moviename):
     filemovienip = filemoviename + ".txt"
     filemovienop = filemoviename + ".html"
@@ -12,7 +14,7 @@ def moviepage(filemoviename,moviename):
         "<div class=\"section\" id=\"section2\">\n<div class=\"pg3title\">" + moviename +"<br><br></div><div id=\"pg3table\"></div>\n")
     filereviewhtml.write("<table width=\"800\"><tr><td><b>Review</b></td><td><b>Sentiment Score</b></td></tr>")
 
-    print(filemovienip)
+#    print(filemovienip)
     for i in filereviewresults:
         filereviewhtml.write("<tr>\n")
         filereviewhtml.write("<td>" + i.split("|")[0] + "</td>\n")
@@ -23,7 +25,7 @@ def moviepage(filemoviename,moviename):
     filereviewresults.close()
     filereviewhtml.close()
 
-
+# Generate Index File
 fileoutput = open("movieoutput.txt",'r')
 fileindex = open("index.html",'w')
 fileindex.write("<!DOCTYPE html>\n<html>\n<head>\n<title>Movie Analysis</title>\n")
@@ -32,6 +34,7 @@ fileindex.write("<body>\n<div>\n<ul>\n<li> <a href=\"about.html\">About</a></li>
 fileindex.write("<div class=\"section\" id=\"section2\">\n<div class=\"pg3title\">Top Movies for the week <br><br></div><div id=\"pg3table\"></div>\n")
 fileindex.write("<table><tr><td><b>Movie Name</b></td><td><b>Gross</b></td><td><b>Change Pcnt</b></td><td><b>Total Gross</b></td><td><b>Week</b></td><td><b>Avg. Critics Review Score</b></td><td><b>Avg. User Review Score</b></td></tr>")
 
+# Read the output file and create html for each movie score
 for i in fileoutput:
     movieuser = i.split("|")[0] + "_user_results"
     moviecritics = i.split("|")[0] + "_critics_results"
@@ -51,10 +54,12 @@ for i in fileoutput:
     moviepage(movieuser,i.split("|")[1])
     moviepage(moviecritics, i.split("|")[1])
 
+# Create the html page for various movies showing the graph and consolidated score data
+# Use the iframe link from the-numbers website
 
     linkvar = i.split("|")[6]
-    link = "http://www.the-numbers.com/movie/box-office-iframe/" + (linkvar.split("#")[0]).split("/")[2]
-    print(link)
+    link = "https://www.the-numbers.com/movie/box-office-iframe/" + (linkvar.split("#")[0]).split("/")[2]
+#    print(link)
     filenumbers = open(movienumbers, 'w')
     filenumbers.write("<!DOCTYPE html>\n<html>\n<head>\n<title>Movie Analysis</title>\n")
     filenumbers.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\"/>\n</head>\n")
@@ -72,15 +77,7 @@ for i in fileoutput:
     filenumbers.write("</table>\n</div>\n</body>\n</html>")
     filenumbers.close()
 
-
-
-
-
 fileindex.write("</table></div>\n</body>\n</html>")
-
-
 
 fileoutput.close()
 fileindex.close()
-
-

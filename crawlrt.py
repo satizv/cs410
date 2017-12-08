@@ -4,31 +4,18 @@ import re
 import ast
 import time
 
-#response = requests.get('https://www.rottentomatoes.com/m/blade_runner_2049/')
-#html =  response.text.encode('utf-8')
-#soup = BeautifulSoup(html, 'html.parser')
-
-#for datapr in soup.find_all('p',class_="comment clamp clamp-6"):
-#    print datapr.text
-
-#response = requests.get('https://www.rottentomatoes.com/m/blade_runner_2049/reviews/')
-#html =  response.text.encode('utf-8')
-#soup = BeautifulSoup(html, 'html.parser')
-
-#for datapr in soup.find_all('div',class_="the_review"):
-#    print datapr.text
-
 # Input - Movie Name, Url, Reviewtype
 # Output - Create a text file with the review content
 def crawl_review(filename,newurl,reviewtype):
-    fi = open(filename, "w")
+    filenamewithpath = "reviewfiles/" + filename
+    fi = open(filenamewithpath, "w")
     newurlresponse = requests.get(newurl)
     newurlhtml = newurlresponse.text.encode('utf-8')
     newurlsoup = BeautifulSoup(newurlhtml, 'html.parser')
     for newurldata in newurlsoup.find_all('div', class_=reviewtype):
         fi.write(newurldata.text.encode('ascii', 'ignore'))
         fi.write('|')
-        print newurldata.text
+#        print newurldata.text
     fi.close()
     time.sleep(2)
 
@@ -55,10 +42,10 @@ movielist =  dict1.get('itemListElement')
 filist = open("moviertlist.txt","w")
 
 i=0
-while (i<5):
-    print movielist[i].get('url')[3:]
+while (i<15):
+#    print movielist[i].get('url')[3:]
     filetext = movielist[i].get('url')[3:]
-    print filetext
+#    print filetext
     filist.write(filetext)
     filist.write('\n')
     criticsurl = "https://www.rottentomatoes.com" + movielist[i].get('url') + "/reviews"
@@ -66,6 +53,6 @@ while (i<5):
     crawl_review(filetext + "_critics.csv",criticsurl,"the_review")
     crawl_review(filetext + "_user.csv",userurl,"user_review")
     i=i+1
-    print(i)
+#    print(i)
 
 filist.close()
