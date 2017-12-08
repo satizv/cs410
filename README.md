@@ -158,11 +158,8 @@ Output – index.html, Critics Review Score html Pages, User Review Score html P
 
 The htmlgenerator.py script would generate the following html files
 a.	Index Page – The main html that list the top 15 movies for the week and list the average sentiment score.
-
 b.	Critics Review Score Pages – Html page for each movie listing the critics review and the sentiment score for each of the review.
-
 c.	User Review Score Pages – Html page for each movie listing the user review and the sentiment score for each of the review. 
-
 d.	Revenue projection and consolidated Score page – Html page showing the revenue graph from the-numbers website for the movie and the showing the consolidated values for each movie.
 
 
