@@ -1,0 +1,54 @@
+.pg3floatleft {
+	float: left;
+}
+.pg3floatright {
+      width: 50%;
+      padding-right: 55px;
+	  padding-top: 55px;
+} 
+.pg3title
+{
+	font: 30px sans-serif;
+	font-family: 'Impact', sans-serif;
+	color: black;
+	text-anchor: middle;
+	text-align: center;	
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+li {
+    float: right;
+}
+
+
+li a {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+    text-anchor: middle;
+    text-align: center;	
+}
+li a:hover {
+    background-color: #111111;
+}
+
+
+table {
+    border-collapse: collapse;
+	margin: auto;
+    border: 2px black solid;
+    font: 12px sans-serif;
+    }
+
+    td {
+        border: 1px black solid;
+        padding: 5px;
+    }
