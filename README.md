@@ -11,14 +11,14 @@ Sentiment analysis in the realm of movie reviews is an important discourse that 
 2. Install Python Packages. Use Command line to install packages using pip.
 
 
-######Ensure your pip is up to date
-'''
+###### Ensure your pip is up to date
+''' 
 pip install --upgrade pip
-'''
-######Install Beautiful Soup
-'''
+''' 
+###### Install Beautiful Soup
+''' 
 pip install beautifulsoup4
-'''
+''' 
 
 
 
