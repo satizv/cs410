@@ -12,13 +12,13 @@ Sentiment analysis in the realm of movie reviews is an important discourse that 
 
 
 ###### Ensure your pip is up to date
-''' 
+```
 pip install --upgrade pip
-''' 
+``` 
 ###### Install Beautiful Soup
-''' 
+``` 
 pip install beautifulsoup4
-''' 
+``` 
 
 
 
