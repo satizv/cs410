@@ -162,4 +162,3 @@ b.	Critics Review Score Pages – Html page for each movie listing the critics r
 c.	User Review Score Pages – Html page for each movie listing the user review and the sentiment score for each of the review. 
 d.	Revenue projection and consolidated Score page – Html page showing the revenue graph from the-numbers website for the movie and the showing the consolidated values for each movie.
 
-
