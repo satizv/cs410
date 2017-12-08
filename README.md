@@ -152,7 +152,8 @@ q.	No. of negative score for user reviews
 ```
 Script Name – htmlgenerator.py
 Input – movieoutput.txt, 30 movie critics and user review scores
-Output – index.html, Critics Review Score html Pages, User Review Score html Pages, Revenue projection and consolidated Score html page
+Output – index.html, Critics Review Score html Pages, User Review Score html Pages, 
+         Revenue projection and consolidated Score html page
 ```
 
 The htmlgenerator.py script would generate the following html files
